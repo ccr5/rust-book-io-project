@@ -7,6 +7,8 @@ pub struct Config {
 }
 
 impl Config {
+    // (ts) String[] = (rs) [String]
+    // 'static = extend lifetime of a variable
     pub fn build(args: &[String]) -> Result<Config, &'static str> {
         if args.len() < 3 {
             return Err("not enough arguments");
@@ -25,6 +27,12 @@ pub fn run(config: Config) -> Result<(), Box<dyn Error>> {
     what particular type the return value will be
 
     The dyn keyword is short for “dynamic.”
+    */
+
+    /*
+    ? is the operator to propagate errors
+    When ? is placed after a result and the value is Ok(), it will continue on this expression
+    but if Err(), the value will be return whole function to the caller.
     */
 
     let contents: String = fs::read_to_string(config.file_path)?;
