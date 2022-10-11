@@ -48,6 +48,17 @@ pub fn search<'a>(query: &str, contents: &'a str) -> Vec<&'a str> {
     /*
     'a define a explicit lifetime.
     Rust require you to connect arguments to return values in the signature.
+
+    Example:
+
+        If you see, the code has a for loop that is adding references (&str) from contents
+        in a mutable vector called results to be return later.
+        I know this cause i'm reading, but how the search
+        function knows if this references was borrowed from query or content variable?
+        So, we have to 'link' the variable and result to tell him it.
+
+        Other explanation is that results is Vec<&str> and it will be return later.
+        but &str is a reference for what?
     */
     let mut results: Vec<&str> = Vec::new();
 
@@ -60,6 +71,16 @@ pub fn search<'a>(query: &str, contents: &'a str) -> Vec<&'a str> {
     results
 }
 
+/*
+cfg = Configuration conditional checks are possible through two different operators
+https://doc.rust-lang.org/rust-by-example/attribute/cfg.html
+
+cfg(test) is enabled when building “unit tests” and “unit benchmarks” found
+inside your library or binary crate. If you have a #[test] or #[bench] function inside
+your library crate (src/lib.rs and its submodules) or your binary crate (src/main.rs or
+its submodules), Cargo will build that entire crate with rustc --test, which enables
+cfg(test) and produces a “test harness” binary containing all of its unit tests/benchmarks.
+ */
 #[cfg(test)]
 mod tests {
     use super::*;
