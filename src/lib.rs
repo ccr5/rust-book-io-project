@@ -18,6 +18,13 @@ impl Config {
 
         let query: String = args[1].clone();
         let file_path: String = args[2].clone();
+
+        /*
+        Verify if the user wants to use case insensitive or not
+        Command line: IGNORE_CASE=1 cargo run -- to poem.txt
+        the run function will check if it's true and will execute the correct function
+        */
+
         let ignore_case: bool = env::var("IGNORE_CASE").is_ok();
 
         Ok(Config {
