@@ -10,7 +10,7 @@
   <h3 align="center">Rust Book IO Project</h3>
 
   <p align="center">
-    Learning Rust using project of [Rust book](https://doc.rust-lang.org/book/ch12-00-an-io-project.html).
+    Learning Rust using project of Rust book.
     <br />
     <a href="https://github.com/ccr5/rust-book-io-project"><strong>Explore the docs »</strong></a>
     <br />
